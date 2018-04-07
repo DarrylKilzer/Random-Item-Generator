@@ -1,0 +1,11 @@
+C:\Users\darry\repos\c#\RandomItemGenerator\obj\Debug\netcoreapp2.0\RandomItemGenerator.csprojResolveAssemblyReference.cache
+C:\Users\darry\repos\c#\RandomItemGenerator\obj\Debug\netcoreapp2.0\RandomItemGenerator.csproj.CoreCompileInputs.cache
+C:\Users\darry\repos\c#\RandomItemGenerator\obj\Debug\netcoreapp2.0\RandomItemGenerator.AssemblyInfoInputs.cache
+C:\Users\darry\repos\c#\RandomItemGenerator\obj\Debug\netcoreapp2.0\RandomItemGenerator.AssemblyInfo.cs
+C:\Users\darry\repos\c#\RandomItemGenerator\bin\Debug\netcoreapp2.0\RandomItemGenerator.deps.json
+C:\Users\darry\repos\c#\RandomItemGenerator\bin\Debug\netcoreapp2.0\RandomItemGenerator.runtimeconfig.json
+C:\Users\darry\repos\c#\RandomItemGenerator\bin\Debug\netcoreapp2.0\RandomItemGenerator.runtimeconfig.dev.json
+C:\Users\darry\repos\c#\RandomItemGenerator\bin\Debug\netcoreapp2.0\RandomItemGenerator.dll
+C:\Users\darry\repos\c#\RandomItemGenerator\bin\Debug\netcoreapp2.0\RandomItemGenerator.pdb
+C:\Users\darry\repos\c#\RandomItemGenerator\obj\Debug\netcoreapp2.0\RandomItemGenerator.dll
+C:\Users\darry\repos\c#\RandomItemGenerator\obj\Debug\netcoreapp2.0\RandomItemGenerator.pdb
