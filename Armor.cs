@@ -1,3 +1,5 @@
+using System;
+
 namespace RandomItemGenerator
 {
     public class Armor : StatItem
@@ -5,7 +7,7 @@ namespace RandomItemGenerator
         public float Defense { get; private set; }
         public string Slot { get; private set; }
 
-        public Armor(string name, int value, string type) : base(name, value, type)
+        public Armor(string name, string slot, Random random, string type) : base(name, type, random, max)
         {
 
         }
