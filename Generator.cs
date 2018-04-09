@@ -6,9 +6,9 @@ namespace RandomItemGenerator
     {
         string[] _itemTier = new string[] { "Weak", "Typical", "Stiff", "Great", "Legendary" };
         string[] _itemTypes = new string[] { "Armor", "Weapon", "Potion", "Scroll" };
-        string[] _armorTypes = new string[] { "Legs", "Arms", "Feet", "Head", "Chest" };
+        string[] _armorTypes = new string[] { "Legs", "Arms", "Feet", "Helm", "Chest Piece" };
         string[] _potionTypes = new string[] { "Green", "Orange", "Red", "Blue", "Purple", "Yellow", "Black" };
-        string[] _scrollTypes = new string[] { "Ancient", "Orange", "Red", "Blue", "Purple", "Yellow", "Black" };
+        string[] _scrollTypes = new string[] { "Ancient Papyrus", "Frayed Papyrus", "Runed Rock", "Scrolled Wood", "Stitched Leather" };
         string[] _weaponTypes = new string[] { "GreatAxe", "BroadSword", "LongSword", "Spear", "Club", "Dagger", "Stiletto" };
         string[] adjectives = new string[] { "Absurd", "Crazy", "Exotic", "Fanciful", "Grotesque", "Imaginative", "Implausible", "Incredible", "Insane", "Ludicrous", "Odd", "Outlandish", "Preposterous", "Ridiculous", "Singular", "Unbelievable", "Unreal", "Weird", "Artificial", "Capricious", "Chimerical", "Comical", "Eccentric", "Erratic", "Extravagant", "Extreme", "Far-fetched", "Fictional", "Foolish", "Foreign", "Freakish", "Hallucinatory", "Illusive", "Irrational", "Mad", "Misleading", "nonsensical", "Out of Sight", "Peculiar", "Phantasmagorical", "Quaint", "Queer", "Suppositious", "Unlikely", "Wacky", "Whimsical" };
         string[] endings = new string[] { "Impotence", "Condescending", "Illiteracy", "Garbage", "Impedment", "Destruction", "Improbablity", "Death", "Astoundment", };
@@ -18,15 +18,7 @@ namespace RandomItemGenerator
             BaseItem item = null;
             string type = ChooseType();
             Tier tier = ChooseTier();
-            switch (type)
-            {
-                case "Armor":
-                case "Weapon":
-                case "Potion":
-                case "Scroll":
-                    item = CreateItem(tier, type);
-                    break;
-            }
+            item = CreateItem(tier, type);
             return item;
         }
         string ChooseType()
@@ -71,13 +63,13 @@ namespace RandomItemGenerator
             switch (tierName)
             {
                 case "Typical":
-                    return new Tier(tierName, 1);
-                case "Stiff":
-                    return new Tier(tierName, 2);
-                case "Great":
                     return new Tier(tierName, 3);
-                case "Legendary":
+                case "Stiff":
                     return new Tier(tierName, 4);
+                case "Great":
+                    return new Tier(tierName, 6);
+                case "Legendary":
+                    return new Tier(tierName, 8);
                 default:
                     return new Tier(tierName, 0);
             }
@@ -92,38 +84,26 @@ namespace RandomItemGenerator
                 case "Armor":
                     string armorSlot = _armorTypes[_Random.Next(0, _armorTypes.Length)];
                     name = NameGenerator(armorSlot, adjective, ending, tier, type);
-                    return new Armor(name, armorSlot, _Random, type);
+                    return new Armor(name, armorSlot, _Random, type, tier);
                 case "Weapon":
                     string weaponType = _weaponTypes[_Random.Next(0, _weaponTypes.Length)];
                     name = NameGenerator(weaponType, adjective, ending, tier, type);
-                    return new Weapon(name, weaponType, _Random, type);
+                    return new Weapon(name, weaponType, _Random, type, tier);
                 case "Potion":
                     string potionType = _potionTypes[_Random.Next(0, _potionTypes.Length)];
                     name = NameGenerator(potionType, adjective, ending, tier, type);
-                    return new Potion(name, potionType, _Random, type);
+                    return new Potion(name, potionType, _Random, type, tier);
                 case "Scroll":
                     string scrollType = _scrollTypes[_Random.Next(0, _scrollTypes.Length)];
                     name = NameGenerator(scrollType, adjective, ending, tier, type);
-                    return new Scroll(name, scrollType, _Random, type);
+                    return new Scroll(name, scrollType, _Random, type, tier);
             }
             return null;
 
         }
-        // Weapon CreateWeapon(Tier tier)
-        // {
-        //     return null;
-        // }
-        // Potion CreatePotion(Tier tier)
-        // {
-        //     return null;
-        // }
-        // Potion CreateScroll(Tier tier)
-        // {
-        //     return null;
-        // }
         string NameGenerator(string itemName, string adjective, string ending, Tier tier, string type)
         {
-            return $"{tier.Name} {type} {adjective} {itemName} of {ending}";
+            return $"{type}: {adjective} {tier.Name} {itemName} of {ending}";
         }
     }
 }

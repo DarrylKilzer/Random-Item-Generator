@@ -1,3 +1,5 @@
+using System;
+
 namespace RandomItemGenerator
 {
     public abstract class StatItem : BaseItem
@@ -9,20 +11,40 @@ namespace RandomItemGenerator
         public int Wisdom { get; private set; }
         public int Charisma { get; private set; }
         public int HitPoints {get; private set;}
-        public StatItem(string name, int value, string type, int max) : base(name, value, type)
+        public StatItem(string name, string type, Random random, Tier tier) : base(name, type, tier)
         {
-            int[] stats = GenerateStats(max);
-            Strength = stats[0];
-            Dexterity = stats[1];
-            Constitution = stats[2];
-            Intelligence = stats[3];
-            Wisdom = stats[4];
-            Charisma = stats[5];
-            HitPoints = stats[6];
+            
+            Strength = GenerateStat(tier, random, 1);
+            Dexterity = GenerateStat(tier, random, 1);
+            Constitution = GenerateStat(tier, random, 1);
+            Intelligence = GenerateStat(tier, random, 1);
+            Wisdom = GenerateStat(tier, random, 1);
+            Charisma = GenerateStat(tier, random, 1);
+            HitPoints = GenerateStat(tier, random, 3);
         }
-        int[] GenerateStats(int max)
+        int GenerateStat(Tier tier, Random random, int multiplier)
         {
-            return new int[] {}; 
+            int val = 0;
+             switch (tier.Name)
+            {
+                case "Typical":
+                    val = (random.Next(0,tier.Max)-2)*multiplier;
+                    break;
+                case "Stiff":
+                    val = (random.Next(0,tier.Max)-2)*multiplier;
+                    break;
+                case "Great":
+                    val = (random.Next(0,tier.Max)-2)*multiplier;
+                    break;
+                case "Legendary":
+                    val = (random.Next(0,tier.Max)-2)*multiplier;
+                    break;
+            }
+            if(val < 0)
+            {
+                val = 0;
+            }
+            return val; 
         }
     }
 }
