@@ -1,9 +1,11 @@
 using System;
+using System.Collections.Generic;
+
 namespace RandomItemGenerator
 {
     public class Weapon : StatItem
     {
-        public int Attack { get; private set;}
+        public int Attack { get; private set; }
         public Weapon(string name, string slot, Random random, string type, Tier tier) : base(name, type, random, tier)
         {
             Attack = GetAttack(tier);

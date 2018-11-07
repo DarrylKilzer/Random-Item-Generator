@@ -99,7 +99,6 @@ namespace RandomItemGenerator
                     return new Scroll(name, scrollType, _Random, type, tier);
             }
             return null;
-
         }
         string NameGenerator(string itemName, string adjective, string ending, Tier tier, string type)
         {
